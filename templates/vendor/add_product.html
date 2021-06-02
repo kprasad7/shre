@@ -1,0 +1,18 @@
+
+<center>
+{% block title %}<h1>Add Vendor Data</h1>| {% endblock %}
+
+
+
+    <form method="post" action="." enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <div class="field">
+            <div class="control">
+                <button class="button is-dark is-uppercase">Submit</button>
+            </div>
+        </div>
+    </form>
+</center>

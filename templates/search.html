@@ -1,0 +1,60 @@
+
+
+{% block title %}Search | {% endblock %}
+
+{% block content %}
+    <div class="columns is-multiline mb-6">
+        <div class="column is-12 has-text-centered mt-6 mb-6">
+            <h2 class="is-size-3">Search</h2>
+            <h3>Search term: "{{ query }}"</h3>
+        </div>
+
+
+            
+        <table class="table table-hover" id="dev-table">
+      <thead>
+        <tr>
+
+            <th style="width:5%;">company name</th>
+            <th style="width:3%;">branch</th>
+            <th style="width:5%;">position</th>
+            <th style="width:10%;">others costs</th>
+            <th style="width:5%;">salary</th>
+            <th style="width:5%;">category</th>
+            <th style="width:7%;">vendor name</th>
+            <th style="width:20%;">description</th>
+            <th style="width:7%;">project cost</th>
+            <th style="width:5%;">date_added</th>
+            <th style="width:10%;">image</th>
+      
+        </tr>
+      </thead>
+
+      <tr>
+
+{% for i in products %}        
+        <td>{{ i.company_name }}</td>
+        <td>{{ i.branch }}</td>
+        <td>{{ i.position }}</td>
+        <td>{{ i.other_costs }}</td>
+        <td>{{ i.salary }}</td>
+        <td>{{ i.category.title }}</td>
+        <td>{{ i.vendor }}</td>
+        <td>{{ i.description }}</td>
+        <td>{{ i.project_cost }}</td>
+        <td>{{ i.date_added }}</td>
+        <td><img src="{{ i.get_thumbnail }}"></td>
+        <td><a href="{% url 'product' product.category.slug product.slug %}" class="button is-dark is-uppercase">View</a></td>
+        
+      </tr>
+  
+    </table>
+    </div>
+</div>
+        
+        
+     
+</table>
+{% endfor %}   
+    </div>
+{% endblock %}
