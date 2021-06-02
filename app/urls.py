@@ -30,10 +30,9 @@ urlpatterns = [
     path('vendor-admin/', views.vendor_admin, name='vendor_admin'),
     path('add-product/', views.add_product, name='add_product'),
 
-    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('logout/', auth_views.LogoutView.as_view(template_name='logout.html'), name='logout'),
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path('<slug:category_slug>/<slug:product_slug>/', views.product, name='product'),
     path('<slug:category_slug>/', views.category, name='category'),
-    path('logout', LogoutView.as_view(template_name='logout.html'),name='logout'),
     path('adminlogin', LoginView.as_view(template_name='adminlogin.html'),name='adminlogin'),
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
