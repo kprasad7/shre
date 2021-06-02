@@ -19,6 +19,7 @@ from details.models import Category, Product
 
 def base(request):
     return render(request, 'main.html')
+ 
 
 @login_required
 def frontpage(request):
